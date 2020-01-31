@@ -25,13 +25,19 @@ public class InsertionSortGUI extends GBFrame {
 		medianButton.setEnabled(false);
 	}
 	
+	ArrayList<Integer> numbers = new ArrayList<Integer>();
+	boolean sorted = false;
+	
 	public void ButtonClicked(JButton button) {
 		if (button == inputButton) {
-			
+			InputDialog i = new InputDialog(this, numbers);
+			i.setVisible(true);
 		}
 		
 		if (button == meanButton) {
-			
+			if (sorted == false) {
+				 
+			}
 		}
 		
 		if (button == modeButton) {
