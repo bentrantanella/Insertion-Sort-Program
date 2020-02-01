@@ -21,7 +21,7 @@ public class InputDialog extends GBDialog {
 	
 	
 	
-	public void ButtonClicked(JButton button) {
+	public void buttonClicked(JButton button) {
 		numbers.add(addField.getNumber());
 		messageBox("You have added the number " + addField.getNumber());
 		addField.setNumber(0);

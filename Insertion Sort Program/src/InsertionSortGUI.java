@@ -28,7 +28,7 @@ public class InsertionSortGUI extends GBFrame {
 	ArrayList<Integer> numbers = new ArrayList<Integer>();
 	boolean sorted = false;
 	
-	public void ButtonClicked(JButton button) {
+	public void buttonClicked(JButton button) {
 		if (button == inputButton) {
 			InputDialog i = new InputDialog(this, numbers);
 			i.setVisible(true);
