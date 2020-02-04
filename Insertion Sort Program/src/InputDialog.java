@@ -22,8 +22,14 @@ public class InputDialog extends GBDialog {
 	
 	
 	public void buttonClicked(JButton button) {
+		if(!addField.isValidNumber()) {
+			messageBox("Invalid input");
+			return;
+		}
 		numbers.add(addField.getNumber());
 		messageBox("You have added the number " + addField.getNumber());
 		addField.setNumber(0);
+		addField.requestFocus();
+		addField.selectAll();
 	}
 }
