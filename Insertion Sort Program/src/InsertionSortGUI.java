@@ -50,7 +50,7 @@ public class InsertionSortGUI extends GBFrame {
 		}
 		
 		if (button == modeButton) {
-			
+			messageBox("The mode is " + getMode());
 		}
 		
 		if (button == medianButton) {
@@ -66,7 +66,7 @@ public class InsertionSortGUI extends GBFrame {
 		}
 		
 		if (button == resetButton) {
-			
+			numbers.clear();
 		}
 	}
 	
@@ -88,18 +88,30 @@ public class InsertionSortGUI extends GBFrame {
 	}
 	
 	private String getMode() {
-		int highestcounter = 0;
+		
 		String output = "";
-		for(int a : numbers) {
-			int counter = 0;
-			for(int b : numbers) {
-				if (a == b)
-					counter++;
+		int highestcount = 0;
+		ArrayList<Integer> counts = new ArrayList<Integer>();
+		ArrayList<Integer> singles = new ArrayList<Integer>();
+		
+		for(int i = 0; i < numbers.size() - 1; i++) {
+			int count = 1;
+			while(numbers.get(i) == numbers.get(i + 1)) {
+				count++;
 			}
-			if (counter >= highestcounter) {
-				highestcounter = counter;
-				
-			}
+			counts.add(count);
 		}
+		
+		for(int j = 0; j < numbers.size() - 1; j++) {
+			if (numbers.get(j) == numbers.get(j+1))
+				continue;
+			else singles.add(numbers.get(j));
+		}
+		
+		for()
+		
+		
+		
+		return output;
 	}
 }
