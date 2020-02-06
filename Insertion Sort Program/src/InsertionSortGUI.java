@@ -50,7 +50,7 @@ public class InsertionSortGUI extends GBFrame {
 		}
 		
 		if (button == modeButton) {
-			messageBox("The mode is " + getMode());
+			messageBox(getMode());
 		}
 		
 		if (button == medianButton) {
@@ -67,14 +67,18 @@ public class InsertionSortGUI extends GBFrame {
 		
 		if (button == resetButton) {
 			numbers.clear();
+			messageBox("You have cleared the list");
 		}
 	}
 	
 	private double getMedian() {
 		if (numbers.size() % 2 != 0) {
 			return numbers.get(numbers.size() / 2);
+			
 		} else {
-			return (numbers.get(numbers.size() / 2) + numbers.get((numbers.size() / 2) - 1)) / 2;
+			double num1 = numbers.get(numbers.size() / 2);
+			double num2 = numbers.get((numbers.size() / 2) - 1);
+			return (num1 + num2) / 2;
 		}
 	}
 	
@@ -88,29 +92,40 @@ public class InsertionSortGUI extends GBFrame {
 	}
 	
 	private String getMode() {
+		ArrayList<Integer> modes = new ArrayList<Integer>();
+		int highestcount = 1;
+		int count;
+		
+		for(int i = 0; i < numbers.size(); i++) {
+			count = 0;
+			for(int j = 0; j < numbers.size(); j++) {
+				if (numbers.get(i) == numbers.get(j) && !modes.contains(numbers.get(i))) {
+					count++;
+				}
+			}
+			
+			if (count > highestcount) {
+				modes.clear();
+				modes.add(numbers.get(i));
+				highestcount = count;
+			} else if (count == highestcount && highestcount > 1){
+				modes.add(numbers.get(i));
+			}
+			
+		}
+		
+		if (modes.isEmpty() == true) {
+			return "There is no mode";
+		}
 		
 		String output = "";
-		int highestcount = 0;
-		ArrayList<Integer> counts = new ArrayList<Integer>();
-		ArrayList<Integer> singles = new ArrayList<Integer>();
-		
-		for(int i = 0; i < numbers.size() - 1; i++) {
-			int count = 1;
-			while(numbers.get(i) == numbers.get(i + 1)) {
-				count++;
-			}
-			counts.add(count);
+		if (modes.size() == 1)
+			output = "The mode is ";
+		else output = "The modes are ";
+		for(int a : modes) {
+			 
+			output += a + " ";
 		}
-		
-		for(int j = 0; j < numbers.size() - 1; j++) {
-			if (numbers.get(j) == numbers.get(j+1))
-				continue;
-			else singles.add(numbers.get(j));
-		}
-		
-		for()
-		
-		
 		
 		return output;
 	}
